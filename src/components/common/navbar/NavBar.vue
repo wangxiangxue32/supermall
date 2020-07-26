@@ -24,7 +24,7 @@
     height: 44px;
     line-height: 44px;
     text-align: center;
-    box-shadow: 0 1px 1px #dbdbdb;
+    box-shadow: 0 1px 1px #ff7fa1;
   }
 
   .left, .right {
