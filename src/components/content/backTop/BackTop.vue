@@ -12,7 +12,8 @@
 
 <style scoped>
   .back-top{
-    position: fixed;
+    /*position: fixed;*/
+    position: absolute;
     right: 10px;
     bottom: 50px;
   }

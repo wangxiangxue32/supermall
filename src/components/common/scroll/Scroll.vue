@@ -15,7 +15,7 @@
     props: {
       probeType: {
         type: Number,
-        default: '0'
+        default: 0
       },
       pullUpLoad: {
         type: Boolean,
@@ -36,11 +36,11 @@
       })
 
       //2. 监听滚动的位置
-      if (this.probeType === 2 || this.probeType === 3){
+      // if (this.probeType === 2 || this.probeType === 3){
         this.scroll.on('scroll',(position) => {
-          this.$emit('scroll',position)
+          this.$emit('scrollEvent',position)
         })
-      }
+      // }
 
       //3.监听上拉加载更多事件
       if (this.pullUpLoad){

@@ -1,7 +1,7 @@
 <template>
   <div id="home">
     <nav-bar class="home-nav">
-      <div slot="center">购物街</div>
+      <div slot="center">首页</div>
     </nav-bar>
     <tab-control :titles="['流行','新款','精选']"
                  @tabClick="tabClick"
@@ -11,7 +11,7 @@
     <scroll class="content"
             ref="scroll"
             :probe-type="3"
-            @scroll="contentScroll"
+            @scrollEvent="contentScroll"
             :pull-up-load="true"
             @pullingUp="loadMore">
       <home-swiper :banners="banners" @swiperImageLoad="swiperImageLoad"/>
@@ -84,7 +84,11 @@
       this.$refs.scroll.refresh()
     },
     deactivated(){
+      //1.保存 Y 值
       this.saveY = this.$refs.scroll.getScrollY()
+
+      //2.取消全局事件监听
+      // this.$bus.$off
     },
     created() {
       //1.请求多个数据
@@ -100,7 +104,7 @@
       const refresh = debounce(this.$refs.scroll.refresh,200)
 
       //1. 图片加载完的事件监听
-      this.$bus.$on('itemImageLoad',() => {
+      this.$bus.$on('homeItemImageLoad',() => {
         // this.$refs.scroll.refresh()
         refresh()
       })
